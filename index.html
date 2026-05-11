@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fitness For All - Unisex AC Gym</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      width: 100%;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: #ff4d4d;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff4d4d;
+    }
+
+    .btn {
+      background: #ff4d4d;
+      padding: 12px 24px;
+      border-radius: 40px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: white;
+      color: #ff4d4d;
+      transform: translateY(-3px);
+    }
+
+    .hero {
+      min-height: 100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+      url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      padding: 0 8%;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 70px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: #ff4d4d;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #ddd;
+      margin-bottom: 35px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .outline-btn {
+      border: 2px solid #ff4d4d;
+      color: white;
+      background: transparent;
+    }
+
+    .outline-btn:hover {
+      background: #ff4d4d;
+      color: white;
+    }
+
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #bbb;
+    }
+
+    .services {
+      background: #121212;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 20px;
+      transition: 0.4s;
+      border: 1px solid transparent;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: #ff4d4d;
+    }
+
+    .service-card h3 {
+      margin: 18px 0 10px;
+      font-size: 22px;
+    }
+
+    .service-card p {
+      color: #bbb;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .icon {
+      font-size: 40px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 24px;
+      object-fit: cover;
+      height: 500px;
+    }
+
+    .about-content h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      color: #ccc;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .stat-box {
+      background: #1a1a1a;
+      padding: 20px 28px;
+      border-radius: 18px;
+      min-width: 140px;
+      text-align: center;
+    }
+
+    .stat-box h3 {
+      color: #ff4d4d;
+      font-size: 28px;
+    }
+
+    .contact {
+      background: #121212;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    .contact-box {
+      background: #1a1a1a;
+      padding: 35px;
+      border-radius: 22px;
+    }
+
+    .contact-box h3 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .contact-box p {
+      margin-bottom: 15px;
+      color: #ddd;
+      line-height: 1.7;
+    }
+
+    iframe {
+      width: 100%;
+      height: 350px;
+      border: none;
+      border-radius: 20px;
+    }
+
+    footer {
+      background: #0a0a0a;
+      padding: 30px 8%;
+      text-align: center;
+      color: #aaa;
+    }
+
+    @media(max-width: 768px) {
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">Fitness For All</div>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <a href="tel:7602360965" class="btn">Call Now</a>
+  </nav>
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>Train Hard. Stay Fit. <span>Feel Strong.</span></h1>
+
+      <p>
+        Welcome to Fitness For All - Premium Unisex AC Gym in Durgapur.
+        Build strength, lose weight and transform your lifestyle with expert trainers
+        and modern workout facilities.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Visit Gym</a>
+        <a href="tel:7602360965" class="btn outline-btn">076023 60965</a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="services" id="services">
+
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Professional training programs for everyone</p>
+    </div>
+
+    <div class="service-grid">
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop" alt="HIIT Workout" style="width:100%;height:220px;object-fit:cover;border-radius:16px;margin-bottom:18px;">
+        <h3>HIIT Classes</h3>
+        <p>Fat burning and endurance-focused high intensity workouts.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop" alt="Aerobics" style="width:100%;height:220px;object-fit:cover;border-radius:16px;margin-bottom:18px;">
+        <h3>Aerobics</h3>
+        <p>Energetic sessions designed for stamina and flexibility.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop" alt="Crossfit" style="width:100%;height:220px;object-fit:cover;border-radius:16px;margin-bottom:18px;">
+        <h3>CrossFit</h3>
+        <p>Functional strength training with modern workout routines.</p>
+      </div>
+
+      <!-- DANCE FITNESS CARD -->
+
+      <div class="service-card">
+        <img 
+          src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop"
+          alt="Dance Fitness"
+          style="
+            width:100%;
+            height:220px;
+            object-fit:cover;
+            border-radius:16px;
+            margin-bottom:18px;
+          "
+        >
+
+        <h3>Dance Fitness Classes</h3>
+
+        <p>
+          Enjoy energetic dance-based workout sessions with powerful
+          choreography and high-energy movement training.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1200&auto=format&fit=crop" alt="Personal Training" style="width:100%;height:220px;object-fit:cover;border-radius:16px;margin-bottom:18px;">
+        <h3>Personal Training</h3>
+        <p>Customized workout plans from expert trainers.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?q=80&w=1200&auto=format&fit=crop" alt="Aquatics" style="width:100%;height:220px;object-fit:cover;border-radius:16px;margin-bottom:18px;">
+        <h3>Aquatics</h3>
+        <p>Water-based training and fitness activities.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1200&auto=format&fit=crop" alt="Weight Training" style="width:100%;height:220px;object-fit:cover;border-radius:16px;margin-bottom:18px;">
+        <h3>Weight Training</h3>
+        <p>Strength and muscle-building workout programs.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop" alt="Nutrition Consulting" style="width:100%;height:220px;object-fit:cover;border-radius:16px;margin-bottom:18px;">
+        <h3>Nutrition Consulting</h3>
+        <p>Get diet guidance for better health and performance.</p>
+      </div>
+
+      <!-- CYCLING CARD -->
+
+      <div class="service-card">
+        <img 
+          src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop"
+          alt="Indoor Cycling"
+          style="
+            width:100%;
+            height:220px;
+            object-fit:cover;
+            border-radius:16px;
+            margin-bottom:18px;
+          "
+        >
+
+        <h3>Cycling</h3>
+
+        <p>
+          Indoor cycling sessions designed for endurance,
+          calorie burning and high-performance cardio workouts.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="about">
+
+    <div class="about">
+
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop" alt="Gym Image">
+
+      <div class="about-content">
+
+        <h2>About Our Gym</h2>
+
+        <p>
+          Fitness For All is a premium Unisex AC Gym located in Benachity, Durgapur.
+          We provide world-class equipment, certified trainers and an energetic environment
+          to help you achieve your fitness goals.
+        </p>
+
+        <p>
+          Whether your goal is weight loss, bodybuilding, endurance training or overall fitness,
+          our gym provides the perfect training atmosphere.
+        </p>
+
+        <div class="stats">
+
+          <div class="stat-box">
+            <h3>9+</h3>
+            <p>Services</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>AC</h3>
+            <p>Gym Facility</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>100%</h3>
+            <p>Motivation</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="contact" id="contact">
+
+    <div class="section-title">
+      <h2>Visit Our Gym</h2>
+      <p>Call us or find us on Google Maps</p>
+    </div>
+
+    <div class="contact-wrapper">
+
+      <div class="contact-box">
+
+        <h3>Contact Information</h3>
+
+        <p><strong>📞 Phone:</strong> 076023 60965</p>
+
+        <p>
+          <strong>📍 Address:</strong><br>
+          1st Floor, SBI Bank, Ruma Sweets Building,<br>
+          Ananda Gopal Mukherjee Sarani Rd,<br>
+          Benachity, Durgapur, West Bengal 713213
+        </p>
+
+        <p>
+          <strong>⏰ Timing:</strong><br>
+          Open Daily - Morning & Evening Sessions
+        </p>
+
+        <a href="tel:7602360965" class="btn">Call Gym</a>
+
+      </div>
+
+      <div>
+        <iframe
+          src="https://maps.google.com/maps?q=Fitness%20For%20All%20Gym%20Benachity%20Durgapur&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 Fitness For All - Unisex AC Gym | All Rights Reserved
+  </footer>
+
+</body>
+</html>
